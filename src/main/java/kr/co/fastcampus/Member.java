@@ -1,14 +1,21 @@
 package kr.co.fastcampus;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Member {
     int id;
     String username;
     String password;
 
-    public Member(int id, String username, String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
+    public Member(ResultSet resultSet){
+        try {
+            this.id = resultSet.getInt("id");
+            this.username = resultSet.getString("username");
+            this.password = resultSet.getString("password");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public int getId() {
