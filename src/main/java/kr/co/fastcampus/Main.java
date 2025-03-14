@@ -31,7 +31,9 @@ public class Main {
                 int id = resultSet.getInt("id");
                 String username = resultSet.getString("username");
                 String password = resultSet.getString("password");
-                logger.info("id: " + id + ", username: " + username + ", password : " + password);
+
+                Member member = new Member(id, username, password);
+                logger.info(member.toString());
             }
 
         } catch (ClassNotFoundException e) {
