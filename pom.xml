@@ -40,6 +40,13 @@
             <artifactId>junit-jupiter-api</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.36</version>
+            <scope>provided</scope>
+            <!-- 컴파일 때만 필요하고, 런타임에 필요 없어서 provided 스콥 적용 -->
+        </dependency>
         <!-- Optionally: parameterized tests support -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
