@@ -28,6 +28,14 @@
 <!--        <extension>pdf</extension>-->
 <!--        <mime-type>application/pdf</mime-type>-->
 <!--    </mime-mapping>-->
+    <filter>
+        <filter-name>simpleFilter</filter-name>
+        <filter-class>kr.co.fastcampus.web.SimpleFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>simpleFilter</filter-name>
+        <url-pattern>/simple</url-pattern>
+    </filter-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
 <!--        <welcome-file>index.html</welcome-file>-->
