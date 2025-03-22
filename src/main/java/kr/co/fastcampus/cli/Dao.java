@@ -7,6 +7,13 @@ import java.sql.SQLException;
 
 @Slf4j
 public class Dao {
+
+    // 컴파일 타임에 기본 생성자 자동 생성해주고, 컨테이너가 bean 을 기본 생성자로 생성함.
+    // 근데 생성자를 이미 정의했다면, 기본 생성자로 만들지 못해서 오류가 남
+//    public Dao() {
+//
+//    }
+
     public void query() {
         var url = "jdbc:h2:mem:test;MODE=MySQL";
 

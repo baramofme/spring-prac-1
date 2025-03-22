@@ -4,6 +4,8 @@
             <pattern>%-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
+    <!-- 스프링 프레임워크 로그는 에러레벨 이상만    -->
+    <logger name="org.springframework" level="ERROR" />
 
     <root level="trace">
         <appender-ref ref="STDOUT" />
