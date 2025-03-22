@@ -1,13 +1,9 @@
 package kr.co.fastcampus.cli.di;
 
 public class A {
-  private B b;
-
-  public void setB(B b) {
-    this.b = b;
-  }
+  private B b = new B();
 
   public void print() {
-    System.out.println(b.calc());
+    b.print();
   }
 }
