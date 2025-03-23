@@ -18,4 +18,6 @@
         <constructor-arg ref="connection"/>
     </bean>
 
+    <bean id="dao2" class="kr.co.fastcampus.cli.Dao2" autowire="constructor"/>
+
 </beans>
