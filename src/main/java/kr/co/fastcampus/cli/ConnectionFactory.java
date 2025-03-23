@@ -1,19 +1,22 @@
 package kr.co.fastcampus.cli;
 
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-@Getter
-public class ConnectionFactory implements InitializingBean {
+@Slf4j
+public class ConnectionFactory {
+//        implements DisposableBean , InitializingBean {
     private String driverClass;
     private String url;
     private String user;
     private String password;
-    private Connection connection = null;
+    @Getter private Connection connection = null;
 
     public ConnectionFactory(String driverClass, String url, String user, String password){
         this.driverClass = driverClass;
@@ -32,9 +35,19 @@ public class ConnectionFactory implements InitializingBean {
 
         return DriverManager.getConnection(this.url, this.user, this.password);
     }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
+//    @Override
+    public void init() throws Exception {
+        log.info("init " + this.url);
         this.connection = createConnection();
     }
+
+//    @Override
+    public void destroy() throws Exception {
+        log.info("destroy ");
+        if(this.connection != null){
+            this.connection.close();
+        }
+    }
+
+
 }
