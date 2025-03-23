@@ -24,4 +24,5 @@
 
     <bean id="dao2" class="kr.co.fastcampus.cli.Dao2" autowire="constructor"/>
 
+    <bean class="kr.co.fastcampus.cli.A" />
 </beans>
