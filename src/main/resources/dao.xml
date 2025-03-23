@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="init" default-destroy-method="destroy"
+>
 
-    <bean id="connectionFactory" class="kr.co.fastcampus.cli.ConnectionFactory">
-        <constructor-arg name="driverClass" value="org.h2.Driver" />
+    <bean id="connectionFactory" class="kr.co.fastcampus.cli.ConnectionFactory" >
+<!--          init-method="init" destroy-method="destroy">-->
+        <constructor-arg name="driverClass" value="org.h2.Driver"/>
         <constructor-arg name="url" value="jdbc:h2:mem:test"/>
         <constructor-arg name="user" value="sa"/>
         <constructor-arg name="password" value=""/>
