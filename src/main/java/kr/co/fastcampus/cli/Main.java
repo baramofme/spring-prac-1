@@ -24,12 +24,12 @@ public class Main {
 //        Connection connection = factory.getConnection();
 //        log.info("" + (connection != null));
 
-        Lifecycle lifecycle = context.getBean(Lifecycle.class);
-        lifecycle.start();
-        log.info(">> 1: "+ lifecycle.isRunning());
-        // dao.xml 등록된 모든 beans 의 detroy 메소드 실행됨
-        context.close();
-        log.info(">> 2: "+ lifecycle.isRunning());
+//        Lifecycle lifecycle = context.getBean(Lifecycle.class);
+//        lifecycle.start();
+//        log.info(">> 1: "+ lifecycle.isRunning());
+//        // dao.xml 등록된 모든 beans 의 detroy 메소드 실행됨
+//        context.close();
+//        log.info(">> 2: "+ lifecycle.isRunning());
 
         // Dao dao2 = (Dao) context.getBean("dao");
         // Dao dao = context.getBean("dao", Dao.class);

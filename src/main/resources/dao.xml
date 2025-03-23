@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"-->
+<!--       default-init-method="init" default-destroy-method="destroy"-->
+<!--&gt;-->
+
+<!-- 어노테이션으로 설정하는 네임스페이스 추가 -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-       default-init-method="init" default-destroy-method="destroy"
->
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
 
     <bean id="connectionFactory" class="kr.co.fastcampus.cli.ConnectionFactory" >
 <!--          init-method="init" destroy-method="destroy">-->
@@ -25,4 +36,17 @@
     <bean id="dao2" class="kr.co.fastcampus.cli.Dao2" autowire="constructor"/>
 
     <bean class="kr.co.fastcampus.cli.A" />
+<!--    <bean class="kr.co.fastcampus.cli.B" />-->
+
+    <!--  같은 타입 생성시, 모호해서 오류가 나야 하는데
+      qualifire 로 원하는 값을 가진 것을 선택해서 주입 가능-->
+<!--    <bean class="kr.co.fastcampus.cli.B" >-->
+<!--        <qualifier value="b1"/>-->
+<!--    </bean>-->
+<!--    <bean class="kr.co.fastcampus.cli.B" >-->
+<!--        <qualifier value="b2"/>-->
+<!--    </bean>-->
+
+    <!--  어노테이션으로 빈 생성  -->
+    <bean class="kr.co.fastcampus.cli.AppConfig" />
 </beans>
