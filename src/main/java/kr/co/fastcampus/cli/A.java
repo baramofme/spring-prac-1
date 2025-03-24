@@ -5,11 +5,15 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
+import java.util.Map;
 
 @Slf4j
 public class A {
@@ -23,11 +27,26 @@ public class A {
 
     // Aware 인터페이스 대신 applicatioContext 주입도 가능
     @Autowired private ApplicationContext applicationContext;
+    @Value("${catalog.name.hello}") String catalogName;
+    // SpEl 은 # 을 쓴다.
+    @Value("#{systemProperties}")
+    Map peopreties;
+    @Value("#{systemProperties['java.home']}")
+    String javaHome;
+    @Value("#{systemProperties['hello']}")
+    String envhello;
 
     @PostConstruct
     void init(){
         log.info("context" + applicationContext);
-        log.info(" "+b);
+        log.error("PostConstruct");
+//        log.info(" "+b);
+    }
+
+    @PreDestroy
+    void destroy(){
+        log.error("PreDestroy");
+
     }
 
 

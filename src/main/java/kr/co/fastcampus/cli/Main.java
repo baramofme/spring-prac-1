@@ -28,7 +28,7 @@ public class Main {
 //        lifecycle.start();
 //        log.info(">> 1: "+ lifecycle.isRunning());
 //        // dao.xml 등록된 모든 beans 의 detroy 메소드 실행됨
-//        context.close();
+        context.close();
 //        log.info(">> 2: "+ lifecycle.isRunning());
 
         // Dao dao2 = (Dao) context.getBean("dao");
