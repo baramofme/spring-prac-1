@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.Lifecycle;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.Connection;
@@ -19,7 +20,9 @@ public class Main {
         logger.info("안녕 세상아!");
 
         // conetext.close 하려면 Closable 이 필요해서. 상위 부모 타입으로
-        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("dao.xml");
+//        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("dao.xml");
+//        컨토넌트 스캔 어노테이션과 xml 대신. AnnotationConfigApplicationContext 를 써서
+        ConfigurableApplicationContext contextByAnnotation = new AnnotationConfigApplicationContext("kr.co.fastcampus.cli");
 //        ConnectionFactory factory = (ConnectionFactory) context.getBean(ConnectionFactory.class);
 //        Connection connection = factory.getConnection();
 //        log.info("" + (connection != null));
@@ -28,7 +31,7 @@ public class Main {
 //        lifecycle.start();
 //        log.info(">> 1: "+ lifecycle.isRunning());
 //        // dao.xml 등록된 모든 beans 의 detroy 메소드 실행됨
-        context.close();
+//        context.close();
 //        log.info(">> 2: "+ lifecycle.isRunning());
 
         // Dao dao2 = (Dao) context.getBean("dao");

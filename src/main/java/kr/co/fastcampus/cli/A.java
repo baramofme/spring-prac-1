@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -16,11 +17,12 @@ import javax.annotation.Resource;
 import java.util.Map;
 
 @Slf4j
+@Component
 public class A {
     // 멤버 변수에 Autowired
     // 없는 bean 을 참조하려고 할 때, 필수적이지 않게해서 로드 시 오류 없이 넘어가게 함
-    @Autowired(required = false)
-    @Qualifier("b2")
+//    @Autowired(required = false)
+//    @Qualifier("b2")
     // 리로스로는, 빈의 함수 이름을 가지고 로드 가능
     // @Resource(name="appBean2")
     private B b;

@@ -16,6 +16,9 @@
 
     <context:annotation-config/>
 
+    <!-- 컴포넌트스캔 어노테이션 대신 xml 로 스캔 설정   -->
+<!--    <context:component-scan base-package="kr.co.fastcampus.cli" />-->
+
     <bean id="connectionFactory" class="kr.co.fastcampus.cli.ConnectionFactory" >
 <!--          init-method="init" destroy-method="destroy">-->
         <constructor-arg name="driverClass" value="org.h2.Driver"/>
@@ -35,7 +38,10 @@
 
     <bean id="dao2" class="kr.co.fastcampus.cli.Dao2" autowire="constructor"/>
 
-    <bean class="kr.co.fastcampus.cli.A" />
+
+
+<!--   @Comopnet 어노테이션으로 스캐닝 -->
+<!--    <bean class="kr.co.fastcampus.cli.A" />-->
 <!--    <bean class="kr.co.fastcampus.cli.B" />-->
 
     <!--  같은 타입 생성시, 모호해서 오류가 나야 하는데
